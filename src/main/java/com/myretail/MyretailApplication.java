@@ -17,22 +17,23 @@ public class MyretailApplication {
     ProductPriceRepository productPriceRepository;
 
     public static void main(String[] args) {
-        System.getProperties().put("server.port", 8090);
         SpringApplication.run(MyretailApplication.class, args);
     }
 
     @PostConstruct
     public void loadInitialData() {
         productPriceRepository.deleteAll();
+
+
         Price price = new Price();
         price.setId("13860428");
         price.setCurrency_code("USD");
         price.setValue(77.98);
 
         Price price1 = new Price();
-        price.setId("16696652");
-        price.setCurrency_code("USD");
-        price.setValue(17.66);
+        price1.setId("16696652");
+        price1.setCurrency_code("USD");
+        price1.setValue(17.66);
         productPriceRepository.insert(price);
         productPriceRepository.insert(price1);
 
